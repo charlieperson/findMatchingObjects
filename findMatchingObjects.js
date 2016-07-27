@@ -7,3 +7,14 @@ function topPlayers (players) {
   }
   return results;
 }
+
+//  filter and map
+
+function topPlayers(players) {
+  return players.filter(function(player) {
+    if(player.score > 100) return true;
+  })
+  .map(function(bigPlayer) {
+    return bigPlayer.name;
+  });
+}
