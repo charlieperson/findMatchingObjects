@@ -18,3 +18,16 @@ function topPlayers(players) {
     return bigPlayer.name;
   });
 }
+
+// recursion
+
+function topPlayers(players) {
+  var results = [];
+  function checkScoreAndReturnName(lessPlayers) {
+    if(lessPlayers.length <= 0) return results;
+    var currentPlayer = lessPlayers[0];
+    if(currentPlayer.score > 100) results.push(currentPlayer.name);
+    return checkScoreAndReturnName(lessPlayers.slice(1));
+  }
+  return checkScoreAndReturnName(players);
+}
